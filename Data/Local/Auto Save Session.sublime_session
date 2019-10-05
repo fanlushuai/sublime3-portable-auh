@@ -32,6 +32,14 @@
 				"selected_items":
 				[
 					[
+						"key",
+						"Keymaps: Cheat Sheet"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
 						"json",
 						"Pretty JSON: Format and Sort JSON"
 					],
@@ -143,7 +151,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,736,398,199,1052",
+			"position": "0,2,3,-1,-1,-1,-1,736,398,199,1052",
 			"project": "",
 			"replace":
 			{

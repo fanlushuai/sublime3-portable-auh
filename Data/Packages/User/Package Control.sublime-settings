@@ -5,7 +5,10 @@
 	],
 	"installed_packages":
 	[
+		"ConvertToUTF8",
+		"Keymaps",
 		"Package Control",
-		"Pretty JSON"
+		"Pretty JSON",
+		"Trimmer"
 	]
 }
