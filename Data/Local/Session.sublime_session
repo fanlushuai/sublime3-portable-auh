@@ -19,6 +19,14 @@
 			},
 			"buffers":
 			[
+				{
+					"contents": "",
+					"settings":
+					{
+						"buffer_size": 0,
+						"line_ending": "Windows"
+					}
+				}
 			],
 			"build_system": "",
 			"build_system_choices":
@@ -31,14 +39,19 @@
 				"last_filter": "",
 				"selected_items":
 				[
+					[
+						"install",
+						"Package Control: Install Package"
+					]
 				],
 				"width": 0.0
 			},
 			"console":
 			{
-				"height": 0.0,
+				"height": 157.0,
 				"history":
 				[
+					"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 				]
 			},
 			"distraction_free":
@@ -86,8 +99,37 @@
 			"groups":
 			[
 				{
+					"selected": 0,
 					"sheets":
 					[
+						{
+							"buffer": 0,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 0,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_name": "",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
 					]
 				}
 			],
@@ -97,7 +139,7 @@
 			},
 			"input":
 			{
-				"height": 0.0
+				"height": 40.0
 			},
 			"layout":
 			{
@@ -127,7 +169,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,670,324,133,978",
+			"position": "0,0,1,-1,-1,-1,-1,736,398,199,1052",
 			"project": "",
 			"replace":
 			{
