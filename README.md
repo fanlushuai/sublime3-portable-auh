@@ -31,11 +31,11 @@ Pretty JSON ,HostsEdit ,SqlBeautifier ,Compare Side-By-Side ,ConvertToUTF8 ,Trim
 - 在menu->view->hide-menu,menu不常用,可以通过alt键,直接显示. (个人是快捷键患者,所以认为外观尽量简洁)
 
 ## 如何感受sublime的强大,平常如何用?(老手绕过)
-1. [快捷键](https://www.shortcutfoo.com/app/dojos/sublime-text-3-win/cheatsheet)
-     基础的快捷键就不说了.以下3个感觉很不错.
-     ctrl+d选中相似位置  很高级
-     ctrl+shift+上下方向键  列模式
-     ctrl+shift+L 列模式的全选中的方式
-     ctrl+j 一行所有
-2. 正则的使用,把正则使用在查找和替换上,你会觉得操作非常快捷而炫酷,还能练习正则.[正则语法](https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md)
-3. 插件的海洋. 没事可以去**[插件仓库](https://packagecontrol.io/)**看看,有哪些排名靠前的,优秀的都可以用用.还有一些工能,你觉得应该有插件的,都可以搜索一下.
+1. 熟练掌握[快捷键](https://www.shortcutfoo.com/app/dojos/sublime-text-3-win/cheatsheet)
+基础的快捷键就不说了.以下3个感觉很不错:
+-    ctrl+d选中相似位置  很高级
+-    ctrl+shift+上下方向键  列模式
+-    ctrl+shift+L 列模式的全选中的方式
+-    ctrl+j 一行所有
+2. 复杂编辑引入正则,把正则使用在查找和替换上,你会觉得操作非常快捷而炫酷,还能练习正则.[正则语法](https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md)
+3. 遨游插件海洋. 没事可以去 **[插件仓库](https://packagecontrol.io/)** 看看,有哪些排名靠前的,优秀的都可以用用.还有一些功能,你觉得应该有插件的,都可以搜索一下.
