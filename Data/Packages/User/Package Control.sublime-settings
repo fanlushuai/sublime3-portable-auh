@@ -5,10 +5,15 @@
 	],
 	"installed_packages":
 	[
+		"Compare Side-By-Side",
 		"ConvertToUTF8",
+		"HostsEdit",
 		"Keymaps",
 		"Package Control",
 		"Pretty JSON",
+		"SqlBeautifier",
+		"SublimeAStyleFormatter",
+		"Theme - Soda",
 		"Trimmer"
 	]
 }

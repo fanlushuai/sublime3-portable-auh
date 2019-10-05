@@ -19,6 +19,15 @@
 			},
 			"buffers":
 			[
+				{
+					"contents": "compare side-by-side, hostsedit.sqlbeautifier,theme-soda,sublimeastyleformatter,converttoutf-8",
+					"settings":
+					{
+						"buffer_size": 94,
+						"line_ending": "Windows",
+						"name": "compare side-by-side, hostsedit.sqlbeautifier,them"
+					}
+				}
 			],
 			"build_system": "",
 			"build_system_choices":
@@ -32,20 +41,28 @@
 				"selected_items":
 				[
 					[
-						"key",
-						"Keymaps: Cheat Sheet"
+						"list",
+						"Package Control: List Packages"
 					],
 					[
 						"instal",
 						"Package Control: Install Package"
 					],
 					[
-						"json",
-						"Pretty JSON: Format and Sort JSON"
-					],
-					[
 						"install",
 						"Package Control: Install Package"
+					],
+					[
+						"host",
+						"Open Hosts File"
+					],
+					[
+						"key",
+						"Keymaps: Cheat Sheet"
+					],
+					[
+						"json",
+						"Pretty JSON: Format and Sort JSON"
 					]
 				],
 				"width": 0.0
@@ -69,6 +86,7 @@
 			},
 			"file_history":
 			[
+				"/C/Windows/System32/drivers/etc/hosts"
 			],
 			"find":
 			{
@@ -110,8 +128,38 @@
 			"groups":
 			[
 				{
+					"selected": 0,
 					"sheets":
 					[
+						{
+							"buffer": 0,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 94,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										94,
+										94
+									]
+								],
+								"settings":
+								{
+									"auto_name": "compare side-by-side, hostsedit.sqlbeautifier,them",
+									"is_init_dirty_state": true,
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
 					]
 				}
 			],
@@ -155,7 +203,7 @@
 			"project": "",
 			"replace":
 			{
-				"height": 72.0
+				"height": 50.0
 			},
 			"save_all_on_build": true,
 			"select_file":
