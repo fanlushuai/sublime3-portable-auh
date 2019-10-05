@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Colorsublime",
 		"Compare Side-By-Side",
 		"ConvertToUTF8",
 		"HostsEdit",
@@ -13,6 +14,7 @@
 		"Pretty JSON",
 		"SqlBeautifier",
 		"SublimeAStyleFormatter",
+		"SublimeLinter",
 		"Theme - Soda",
 		"Trimmer"
 	]

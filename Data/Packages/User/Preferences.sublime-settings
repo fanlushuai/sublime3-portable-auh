@@ -1,6 +1,9 @@
 {
+	"color_scheme": "Packages/Colorsublime - Themes/Tomorrow_Night_Eighties.tmTheme",
 	"ignored_packages":
 	[
 		"Vintage"
-	]
+	],
+	"theme": "Soda Light 3.sublime-theme",
+	"wide_caret": true
 }
