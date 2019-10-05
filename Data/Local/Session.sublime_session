@@ -3,7 +3,7 @@
 	[
 	],
 	"last_version": 3211,
-	"last_window_id": 3,
+	"last_window_id": 5,
 	"log_indexing": false,
 	"settings":
 	{
@@ -27,12 +27,16 @@
 				"selected_items":
 				[
 					[
-						"install",
-						"Package Control: Install Package"
-					],
-					[
 						"java",
 						"Set Syntax: Java"
+					],
+					[
+						"ins",
+						"Colorsublime: Install Theme"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
 					],
 					[
 						"list",
@@ -76,6 +80,8 @@
 			},
 			"file_history":
 			[
+				"/E/Sublime Text Build 3211 x64/Data/Packages/Colorsublime/Colorsublime.sublime-settings",
+				"/E/Sublime Text Build 3211 x64/Data/Packages/User/Colorsublime.sublime-settings",
 				"/C/Windows/System32/drivers/etc/hosts"
 			],
 			"find":
@@ -123,7 +129,7 @@
 			{
 				"height": 40.0
 			},
-			"menu_visible": true,
+			"menu_visible": false,
 			"output.SublimeLinter":
 			{
 				"height": 0.0
@@ -165,7 +171,7 @@
 				],
 				"width": 0.0
 			},
-			"show_minimap": true,
+			"show_minimap": false,
 			"show_open_files": false,
 			"show_tabs": true,
 			"side_bar_visible": true,
@@ -188,15 +194,6 @@
 			},
 			"buffers":
 			[
-				{
-					"contents": "package name.auh.bus.controller;\n\nimport cn.wanghaomiao.seimi.spring.common.CrawlerCache;\nimport io.swagger.annotations.Api;\nimport io.swagger.annotations.ApiOperation;\nimport io.swagger.annotations.ApiParam;\nimport lombok.extern.slf4j.Slf4j;\nimport name.auh.bus.common.LineInfoVo;\nimport name.auh.bus.common.Ret;\nimport name.auh.bus.data.bean.*;\nimport name.auh.bus.data.repository.BusRealTimeRepository;\nimport name.auh.bus.data.repository.DirectionRepository;\nimport name.auh.bus.data.repository.LineRepository;\nimport name.auh.bus.data.repository.StationRepository;\nimport name.auh.bus.service.BusService;\nimport name.auh.bus.srawlers.BusRealTimeSrawler;\nimport org.apache.commons.lang3.StringUtils;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.List;\nimport java.util.Optional;\n\n@Api(description = \"对外服务接口\")\n@RestController\n@RequestMapping(\"/serve/\")\n@Slf4j\npublic class ServeController {\n\n    @Autowired\n    BusService busService;\n\n    @Autowired\n    LineRepository lineRepository;\n\n    @Autowired\n    DirectionRepository directionRepository;\n\n    @Autowired\n    StationRepository stationRepository;\n\n    @Autowired\n    BusRealTimeRepository busRealTimeRepository;\n\n    @ApiOperation(\"获取所有车次\")\n    @GetMapping(value = \"lines\")\n    public Object getLines() {\n        return Ret.buildSuc(lineRepository.findAll());\n    }\n\n    @ApiOperation(\"获取所有车次 模糊查找（前20条）\")\n    @GetMapping(\"lines/{lineName}/like\")\n    public Object getLinesByFuzzyName(@ApiParam(value = \"车次名称\", example = \"专60\") @PathVariable(\"lineName\") String lineName) {\n        return Ret.buildSuc(lineRepository.findLinesByNameLike(\"%\" + lineName + \"%\"));\n    }\n\n    @ApiOperation(\"获取车次的方向\")\n    @GetMapping(value = \"lines/{lineName}/directions\")\n    public Object getDirectionOfLine(@ApiParam(value = \"车次名称\", example = \"专60\") @PathVariable(\"lineName\") String lineName) {\n        return Ret.buildSuc(directionRepository.findByLineEquals(lineName));\n    }\n\n    @ApiOperation(\"获取车次的车站 （同一车站正反向算作两个）\")\n    @GetMapping(\"stations/{line}\")\n    public Object getStationsByLine(@ApiParam(value = \"车次名称\", example = \"专60\") @PathVariable(\"line\") String line,\n                                    @RequestParam(value = \"direction\", required = false) String directionId) {\n        if (StringUtils.isBlank(directionId)) {\n            return Ret.buildSuc(stationRepository.findStationsByLine(line));\n\n        }\n        return Ret.buildSuc(stationRepository.findStationsByLineAndDir(line, directionId));\n    }\n\n    @ApiOperation(\"获取所有车站/某车次的车站，都为模糊查询\")\n    @GetMapping(\"stations/{stationName}/like\")\n    public Object getFuzzyStation(@PathVariable(\"stationName\") String stationName, @ApiParam(\"不传所有车站的模糊查询，传单个车次的模糊查询\") @RequestParam(value = \"line\", required = false) String line) {\n        if (StringUtils.isBlank(line)) {\n            return Ret.buildSuc(stationRepository.findStationsByNameLike(stationName));\n        }\n\n        if (lineRepository.existsById(line)) {\n            return Ret.buildSuc(stationRepository.findStationsByNameLikeAndLineEquals(stationName, line));\n        } else {\n            return Ret.buildFailParam(\"车次不存在\");\n        }\n    }\n\n    @ApiOperation(\"获取车次的所有信息\")\n    @GetMapping(\"lines/{lineName}\")\n    public Object getLineInfo(@PathVariable(\"lineName\") String lineName) {\n        Optional<Line> line = lineRepository.findById(lineName);\n        if (!line.isPresent()) {\n            return Ret.buildFailParam(\"车次不存在\");\n        }\n        List<Station> stationsByLine = stationRepository.findStationsByLine(lineName);\n        List<Direction> directions = directionRepository.findByLineEquals(lineName);\n\n        return Ret.buildSuc(\n                LineInfoVo.builder().line(line.get()).direction(directions).station(stationsByLine).build()\n                , \"获取成功\");\n    }\n\n    private final static long TTL = 1000 * 6;\n\n    @ApiOperation(value = \"获取车辆的实时信息\", notes = \"该接口会请求目标网站，抓取实时结果，并且缓存几秒钟；第一次请求，会触发抓取，但是不会返回结果，需要前端发两次获取结果\")\n    @GetMapping(\"bus/realTime\")\n    public Object getRealTimeStatus(@ApiParam(value = \"车次名称\", example = \"专60\") @RequestParam(\"line\") String line,\n                                    @ApiParam(value = \"车次方向\", example = \"4900468341734851543\") @RequestParam(\"direction\") String direction,\n                                    @ApiParam(value = \"车站ID\", example = \"5\")\n                                    @RequestParam(\"stationId\") String stationId) {\n        if (!lineRepository.existsById(line)) {\n            return Ret.buildFailParam(\"请检查【车次】\");\n        }\n\n        if (!directionRepository.existsById(direction)) {\n            return Ret.buildFailParam(\"请检查【方向】\");\n        }\n\n        Optional<Station> station = stationRepository.findById(new StationId(stationId, direction, line));\n        if (!station.isPresent()) {\n            return Ret.buildFailParam(\"请检查【站点】\");\n        }\n\n        //todo 自动失效的策略 不然会攒很多数据，内存占用变大。\n        //todo 此处也容易有并发问题\n        Optional<BusRealTime> busRealTimeOptional = busRealTimeRepository.findById(new BusRealTimeId(line, direction, stationId));\n        if (!busRealTimeOptional.isPresent() || busRealTimeOptional.get().getUpdateTime() + TTL < System.currentTimeMillis()) {\n            //不存在或者 超过缓存时间，就重新获取\n            log.info(\"re pick\");\n            CrawlerCache.consumeRequest(BusRealTimeSrawler.buildRequest(line, direction, stationId));\n        }\n\n        busRealTimeOptional.ifPresent(busRealTime -> busRealTime.setName(station.get().getName()));\n\n        return Ret.buildSuc(busRealTimeOptional);\n    }\n\n}\n",
-					"settings":
-					{
-						"buffer_size": 5529,
-						"line_ending": "Windows",
-						"name": "package name.auh.bus.controller;"
-					}
-				}
 			],
 			"build_system": "",
 			"build_system_choices":
@@ -210,16 +207,16 @@
 				"selected_items":
 				[
 					[
+						"java",
+						"Set Syntax: Java"
+					],
+					[
 						"ins",
 						"Colorsublime: Install Theme"
 					],
 					[
 						"install",
 						"Package Control: Install Package"
-					],
-					[
-						"java",
-						"Set Syntax: Java"
 					],
 					[
 						"list",
@@ -307,43 +304,8 @@
 			"groups":
 			[
 				{
-					"selected": 0,
 					"sheets":
 					[
-						{
-							"buffer": 0,
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 5529,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										2541,
-										2541
-									]
-								],
-								"settings":
-								{
-									"SL.13.region_keys":
-									[
-									],
-									"auto_name": "package name.auh.bus.controller;",
-									"is_init_dirty_state": true,
-									"syntax": "Packages/Java/Java.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 972.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"type": "text"
-						}
 					]
 				}
 			],
@@ -377,7 +339,7 @@
 					1.0
 				]
 			},
-			"menu_visible": true,
+			"menu_visible": false,
 			"output.SublimeLinter":
 			{
 				"height": 0.0
