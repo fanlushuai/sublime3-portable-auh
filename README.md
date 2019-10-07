@@ -4,6 +4,9 @@
 换机器频繁,或者希望保留配置,之前使用一个sync插件.但是感觉效果不好,**无耻**的利用github.
 重新安装sublime3并做了完美的配置,并第一时间传入了此仓库.目的就是大家可以干净的使用.
 
+## README.md 
+ **[English](README.en.md)**
+
 ## 添加license 
 网上搜了一个可用的,[github的一个gist,很多人回复,估计日后,失效还能有人提供](https://gist.github.com/cantgis/fb17ab10287c512379fbefad7fa5be1c)
 
