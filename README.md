@@ -24,6 +24,7 @@
 - Theme-Soda: soda的主题,排行靠前.我也觉得挺好.
 - Keymaps: 快捷键提示的.插件安装的太多,一时间忘记快捷键很正常,有了它再也忘不了了.(插件配合快件键使用才是最舒服的!!!)
 - SublimeLinter: 语法检查
+- InsertNums: 在列模式下，插入顺序数字
 
 说明: 新版本的 package control提供批量安装插件.如果不想使用本项目的,可以批量搞一下.
 Pretty JSON ,HostsEdit ,SqlBeautifier ,Compare Side-By-Side ,ConvertToUTF8 ,Trimmer ,Colorsublime ,Theme-Soda ,Keymaps ,SublimeLinter

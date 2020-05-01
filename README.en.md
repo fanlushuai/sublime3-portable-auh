@@ -16,6 +16,7 @@ features have be done below.
 - Theme-Soda ,
 - Keymaps ,
 - SublimeLinter
+- Insert Nums
 ## Add config
 - "wide_caret": true
 - "theme": "Soda Light 3.sublime-theme"
