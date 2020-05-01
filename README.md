@@ -8,8 +8,7 @@
  **[English](README.en.md)**
 
 ## 添加license 
-**网上搜了一个可用的,[github的一个gist,很多人回复,估计日后,失效还能有人提供](https://gist.github.com/cantgis/fb17ab10287c512379fbefad7fa5be1c)**
-
+~~网上搜了一个可用的,[github的一个gist,很多人回复,估计日后,失效还能有人提供](https://gist.github.com/cantgis/fb17ab10287c512379fbefad7fa5be1c)~~
 这个大家自己上网找吧。容易gg,也容易找。
 ## 添加package control.
 大多数人使用sublime都止步于此,所以无法感知sublime的强大;[package control安装方式](https://packagecontrol.io/installation)
