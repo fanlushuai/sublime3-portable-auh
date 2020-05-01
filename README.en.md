@@ -4,7 +4,7 @@ Aim to a perfect portable version.Just clone and enjoy it!
 I use to reinstall sublime3 when I change my pc OS,which is boring and repeated,so I clean install a perfect version.
 features have be done below.
 ## Add license
-[license source](https://gist.github.com/cantgis/fb17ab10287c512379fbefad7fa5be1c) from a gitst which is active so that maybe can get a long time support by it.
+~~[license source](https://gist.github.com/cantgis/fb17ab10287c512379fbefad7fa5be1c) from a gitst which is active so that maybe can get a long time support by it.~~ which is unstable,search for it on internet by yourself
 ## add plugins
 - Pretty JSON ,
 - HostsEdit ,
