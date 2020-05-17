@@ -47,6 +47,6 @@ Pretty JSON ,HostsEdit ,SqlBeautifier ,Compare Side-By-Side ,ConvertToUTF8 ,Trim
 3. 遨游插件海洋. 没事可以去 **[插件仓库](https://packagecontrol.io/)** 看看,有哪些排名靠前的,优秀的都可以用用.还有一些功能,你觉得应该有插件的,都可以搜索一下.
 
 ## 绿色版本的文件关联问题
-建议windows用户自己学习一下注册表相关知识,下面提供一个别人写好的注册表修改脚本
+建议windows用户自己学习一下注册表相关知识,下面提供一个修改脚本
 
-[Sublime-Text-Portable-Tool.bat](https://github.com/loo2k/Sublime-Text-Portable-Tool/blob/master/Sublime-Text-Portable-Tool.bat)
+[sublime-portable-tool](https://github.com/fanlushuai/sublime-portable-tool)
