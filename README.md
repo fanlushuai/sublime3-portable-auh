@@ -45,3 +45,8 @@ Pretty JSON ,HostsEdit ,SqlBeautifier ,Compare Side-By-Side ,ConvertToUTF8 ,Trim
 -    ctrl+j 一行所有
 2. 复杂编辑引入正则,把正则使用在查找和替换上,你会觉得操作非常快捷而炫酷,还能练习正则.[正则语法](https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md)
 3. 遨游插件海洋. 没事可以去 **[插件仓库](https://packagecontrol.io/)** 看看,有哪些排名靠前的,优秀的都可以用用.还有一些功能,你觉得应该有插件的,都可以搜索一下.
+
+## 绿色版本的文件关联问题
+建议windows用户自己学习一下注册表相关知识,下面提供一个别人写好的注册表修改脚
+
+[Sublime-Text-Portable-Tool.bat](https://github.com/loo2k/Sublime-Text-Portable-Tool/blob/master/Sublime-Text-Portable-Tool.bat)
